@@ -9,13 +9,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConstructMaison extends JButton {
-    private String name;
     private Image img;
 
-    public ConstructMaison(String str){
-        super(str);
+    public ConstructMaison(){
         this.setBorderPainted(false);
-        this.name=str;
         try{
             img = ImageIO.read(new File("src/resources/textures/gui/Construction Habitation.png"));
         } catch (IOException e) {

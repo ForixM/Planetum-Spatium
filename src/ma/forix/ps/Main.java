@@ -7,6 +7,7 @@ public class Main {
 
     public static String background = "mainmenu";
     public static boolean constructionVisible = false;
+    public static boolean spatialVisible = false;
 
     public static void main(String[] args){
         Fenetre f = new Fenetre();

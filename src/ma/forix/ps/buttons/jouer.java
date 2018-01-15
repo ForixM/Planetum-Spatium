@@ -9,14 +9,12 @@ import java.io.File;
 import java.io.IOException;
 
 import static ma.forix.ps.Main.*;
+
 public class jouer extends JButton {
-    private String name;
     private Image img;
 
-    public jouer(String str){
-        super(str);
+    public jouer(){
         this.setBorderPainted(false);
-        this.name = str;
         try {
             img = ImageIO.read(new File("src/resources/textures/buttons/Jouer.png"));
         } catch (IOException e) {

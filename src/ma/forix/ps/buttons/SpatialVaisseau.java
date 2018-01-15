@@ -8,26 +8,28 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class ConstructUsine extends JButton {
-    private Image img;
+public class SpatialVaisseau extends JButton {
+    Image img;
 
-    public ConstructUsine(){
+    public SpatialVaisseau(){
         this.setBorderPainted(false);
         try{
-            img = ImageIO.read(new File("src/resources/textures/gui/Construction Usine.png"));
+            img = ImageIO.read(new File("src/resources/textures/gui/Vaisseau colonial.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.addActionListener(new ConstructUsineL());
+
+        this.addActionListener(new vaisseauL());
     }
 
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g){
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 
-    private class ConstructUsineL implements ActionListener {
+    private class vaisseauL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Construction d'une Usine effectué!");
+            System.out.println("Construction d'un vaisseau spatial effectué!");
         }
     }
 }

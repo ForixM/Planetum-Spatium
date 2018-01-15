@@ -9,12 +9,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConstructMine extends JButton {
-    private String name;
     private Image img;
 
-    public ConstructMine(String str){
-        super(str);
-        this.name=str;
+    public ConstructMine(){
+        this.setBorderPainted(false);
         try{
             img = ImageIO.read(new File("src/resources/textures/gui/Construction Mine.png"));
         } catch (IOException e) {

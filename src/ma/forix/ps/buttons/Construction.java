@@ -11,15 +11,12 @@ import java.io.IOException;
 import static ma.forix.ps.Main.*;
 
 public class Construction extends JButton {
-    private String name;
     private Image img;
 
-    public Construction(String str){
-        super(str);
+    public Construction(){
         this.setBorderPainted(false);
-        this.name=str;
         try{
-            img = ImageIO.read(new File("src/resources/textures/gui/Construction.png"));
+            img = ImageIO.read(new File("src/resources/textures/buttons/Construction.png"));
         }catch (IOException e){
             e.printStackTrace();
         }

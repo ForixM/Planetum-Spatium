@@ -9,12 +9,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConstructEnergie extends JButton {
-    private String name;
     private Image img;
 
-    public ConstructEnergie(String str){
-        super(str);
-        this.name=str;
+    public ConstructEnergie(){
+        this.setBorderPainted(false);
         try{
             img = ImageIO.read(new File("src/resources/textures/gui/Construction Energie.png"));
         } catch (IOException e) {

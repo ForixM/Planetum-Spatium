@@ -23,13 +23,11 @@ public class ConstructMine extends JButton {
         this.addActionListener(new ConstructMineL());
     }
 
-    @Override
-    public void paintComponents(Graphics g) {
+    public void paintComponent(Graphics g) {
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 
     private class ConstructMineL implements ActionListener {
-        @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("Construction d'une Mine effectué!");
         }

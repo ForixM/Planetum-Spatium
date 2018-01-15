@@ -23,13 +23,11 @@ public class ConstructEnergie extends JButton {
         this.addActionListener(new ConstructEnergieL());
     }
 
-    @Override
-    public void paintComponents(Graphics g) {
+    public void paintComponent(Graphics g) {
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 
     private class ConstructEnergieL implements ActionListener {
-        @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("Construction d'une Energie effectué!");
         }

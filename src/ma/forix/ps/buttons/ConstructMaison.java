@@ -24,7 +24,7 @@ public class ConstructMaison extends JButton {
         this.addActionListener(new ConstructMaisonL());
     }
 
-    public void paintComponents(Graphics g) {
+    public void paintComponent(Graphics g) {
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 

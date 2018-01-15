@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+import static ma.forix.ps.Main.*;
+
 public class Construction extends JButton {
     private String name;
     private Image img;
@@ -31,7 +33,9 @@ public class Construction extends JButton {
     private class constructionL implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("waw");
+            System.out.println("ConstructionVisible = "+constructionVisible);
+            if (constructionVisible) constructionVisible = false;
+            else constructionVisible = true;
         }
     }
 }

@@ -40,6 +40,32 @@ public class Panel extends JPanel {
             this.add(CU);
             this.add(CMA);
             this.add(CE);
+
+            if (constructionVisible){
+                CMI.setVisible(true);
+                CU.setVisible(true);
+                CMA.setVisible(true);
+                CE.setVisible(true);
+            }
+            else{
+                CMI.setVisible(false);
+                CU.setVisible(false);
+                CMA.setVisible(false);
+                CE.setVisible(false);
+            }
         }
+    }
+
+    public void setButtonVisible(){
+        CMI.setVisible(true);
+        CU.setVisible(true);
+        CMA.setVisible(true);
+        CE.setVisible(true);
+    }
+    public void setButtonInvisible(){
+        CMI.setVisible(true);
+        CU.setVisible(true);
+        CMA.setVisible(true);
+        CE.setVisible(true);
     }
 }

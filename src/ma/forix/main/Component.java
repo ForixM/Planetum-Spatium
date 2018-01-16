@@ -1,6 +1,6 @@
 package ma.forix.main;
 
-import ma.forix.main.graphics.Renderer;
+import ma.forix.main.game.Game;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -24,28 +24,11 @@ public class Component {
 
     DisplayMode mode = new DisplayMode(width*scale, height*scale);
 
+    Game game;
+
     public Component(){
-        try {
-            Display.setDisplayMode(mode);
-            Display.setResizable(true);
-            Display.setFullscreen(false);
-            Display.setTitle(title);
-            Display.create();
-
-            view2D(width, height);
-        } catch (LWJGLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void view2D(int width, int height){
-        glViewport(0, 0, width*scale, height*scale);
-
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        GLU.gluOrtho2D(0, width, height, 0);
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+        display();
+        game = new Game();
     }
 
     public void start(){
@@ -58,6 +41,8 @@ public class Component {
     }
 
     public void loop(){
+        game.init();
+
         long timer = System.currentTimeMillis();
 
         long before = System.nanoTime();
@@ -103,17 +88,44 @@ public class Component {
 
     public void update(){
         time++;
+
+        game.update();
     }
 
     public void render(){
         view2D(width, height);
         glClear(GL_COLOR_BUFFER_BIT);
-        Renderer.renderQuad(50, 50, 16, 16);
+
+        game.render();
     }
 
     public void exit(){
         Display.destroy();
         System.exit(0);
+    }
+
+    public void display(){
+        try {
+            Display.setDisplayMode(mode);
+            Display.setResizable(true);
+            Display.setFullscreen(false);
+            Display.setTitle(title);
+            Display.create();
+
+            view2D(width, height);
+        } catch (LWJGLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void view2D(int width, int height){
+        glViewport(0, 0, width*scale, height*scale);
+
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        GLU.gluOrtho2D(0, width, height, 0);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
     }
 
     public static void main(String[] args){

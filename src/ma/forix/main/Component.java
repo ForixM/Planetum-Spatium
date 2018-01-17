@@ -14,8 +14,8 @@ public class Component {
 
     public static String title="Planetum Spatium";
     public static int scale=3;
-    public static int width=735 / scale;
-    public static int height=575 / scale;
+    public static int width=720 / scale;
+    public static int height=480 / scale;
 
     int time = 0;
 
@@ -126,6 +126,8 @@ public class Component {
         GLU.gluOrtho2D(0, width, height, 0);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
+
+        glEnable(GL_TEXTURE_2D);
     }
 
     public static void main(String[] args){

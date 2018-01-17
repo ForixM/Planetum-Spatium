@@ -12,6 +12,9 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL12.*;
 
 public class Texture {
+
+    public static Texture tiles = loadTexture("resources/textures/buttons/Jouer.png");
+
     int width, height;
     int id;
 

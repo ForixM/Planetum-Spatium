@@ -3,8 +3,11 @@ package ma.forix.main.game.level.tiles;
 import ma.forix.main.Component;
 import ma.forix.main.game.Game;
 import ma.forix.main.graphics.Renderer;
+import ma.forix.main.graphics.Texture;
 
 import java.util.Random;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class Tile {
 
@@ -33,7 +36,11 @@ public class Tile {
         float x1 = x + 1 + Game.xScroll/16;
         float y1 = y + 1 + Game.yScroll/16;
 
-        if (x1 < 0 || y1 < 0 || x0 > Component.width/15 || y0 > Component.height/15) return;
-        Renderer.renderQuad(x*size, y*size, size, size, color);
+        if (x1 < 0 || y1 < 0 || x0 > Component.width/16 || y0 > Component.height/16) return;
+        Texture.tiles.bind();
+        glBegin(GL_QUADS);
+            Renderer.quadData(x*size, y*size, size, size, color, 0, 0);
+        glEnd();
+        Texture.tiles.unbind();
     }
 }

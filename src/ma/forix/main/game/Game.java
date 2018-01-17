@@ -1,27 +1,24 @@
 package ma.forix.main.game;
 
-
-import ma.forix.main.Component;
-import ma.forix.main.graphics.Renderer;
+import ma.forix.main.game.level.Level;
 
 public class Game {
-    public Game(){
 
+    Level level;
+
+    public Game(){
+        level = new Level(10, 10);
     }
 
     public void init(){
-
+        level.init();
     }
 
     public void update(){
-
+        level.update();
     }
 
     public void render(){
-        for (int x = 0; x < Component.width/16; x++){
-            for (int y = 0; y < Component.height/16; y++){
-                Renderer.renderQuad(x*17, y*17, 16, 16, new float[]{0, 1, 0, 1});
-            }
-        }
+        level.render();
     }
 }
